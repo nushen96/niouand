@@ -19,8 +19,22 @@ const AddStack = isOffer => {
           header: null
         })
       },
-      AddOffre: AddOffre,
-      AddDemande: AddDemande
+      AddOffre: {
+        screen: AddOffre,
+        navigationOptions: () => ({
+          title: "Faire une offre",
+          headerStyle: style.header,
+          headerTitleStyle: style.headerTitle
+        })
+      },
+      AddDemande: {
+        screen: AddDemande,
+        navigationOptions: () => ({
+          title: "Faire une demande",
+          headerStyle: style.header,
+          headerTitleStyle: style.headerTitle
+        })
+      }
     },
     { initialRouteName: "Index" }
   );

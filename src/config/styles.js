@@ -10,5 +10,12 @@ export default {
   icon: {
     width: 25,
     height: 25
+  },
+  header: {
+    backgroundColor: red
+  },
+  headerTitle: {
+    color: "#ffffff",
+    paddingTop: 5
   }
 };
