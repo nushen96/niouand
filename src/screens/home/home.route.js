@@ -9,19 +9,27 @@ import Offre from "./offre/Offre";
 import AddOffre from "../add/AddOffre";
 import AddDemande from "../add/AddDemande";
 
-const AddStack = createStackNavigator(
-  {
-    Index: Offre,
-    AddOffre: AddOffre,
-    AddDemande: AddDemande
-  },
-  { initialRouteName: "Index" }
-);
+const AddStack = isOffer => {
+  return createStackNavigator(
+    {
+      Index: {
+        screen: isOffer ? Offre : Demande,
+        navigationOptions: () => ({
+          title: null,
+          header: null
+        })
+      },
+      AddOffre: AddOffre,
+      AddDemande: AddDemande
+    },
+    { initialRouteName: "Index" }
+  );
+};
 
 export const HomeStack = createMaterialTopTabNavigator(
   {
-    Offre: Offre,
-    Demande: Demande
+    Offre: AddStack(true),
+    Demande: AddStack(false)
   },
   {
     initialRouteName: "Offre",
