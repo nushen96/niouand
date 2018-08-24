@@ -18,7 +18,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount = async () => {
-    //await AsyncStorage.removeItem("access_token");
+    await AsyncStorage.removeItem("access_token");
     setTimeout(() => {
       this.hideSplash();
     }, 3000);

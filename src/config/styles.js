@@ -14,6 +14,19 @@ export default {
   header: {
     backgroundColor: red
   },
+  button: {
+    backgroundColor: red,
+    padding: 12,
+    margin: 16,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 4,
+    borderColor: "rgba(0, 0, 0, 0.1)"
+  },
+  buttonText: {
+    fontWeight: "bold",
+    color: "white"
+  },
   headerTitle: {
     color: "#ffffff",
     paddingTop: 5

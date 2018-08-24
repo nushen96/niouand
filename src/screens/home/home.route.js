@@ -42,11 +42,11 @@ const AddStack = isOffer => {
 
 export const HomeStack = createMaterialTopTabNavigator(
   {
-    Offre: AddStack(true),
-    Demande: AddStack(false)
+    Offres: AddStack(true),
+    Demandes: AddStack(false)
   },
   {
-    initialRouteName: "Offre",
+    initialRouteName: "Offres",
     swipeEnabled: false,
     tabBarOptions: {
       showLabel: true,
