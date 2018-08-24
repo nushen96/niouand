@@ -1,9 +1,36 @@
 import React from "react";
 import { View, Text, Image } from "react-native";
 import style from "../../../config/styles";
+import Menu from "../../../components/Menu";
+import SideMenu from "react-native-side-menu";
 import { FloatingAction } from "react-native-floating-action";
 
 export default class Demande extends React.Component {
+  constructor(props) {
+    super(props);
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      isOpen: false,
+      selectedItem: "About"
+    };
+  }
+
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
+
+  updateMenuState(isOpen) {
+    this.setState({ isOpen });
+  }
+
+  onMenuItemSelected = item =>
+    this.setState({
+      isOpen: false,
+      selectedItem: item
+    });
+
   static navigationOptions = {
     title: "Demandes",
     tabBarIcon: () => {
@@ -35,19 +62,27 @@ export default class Demande extends React.Component {
         color: style.color
       }
     ];
+
+    const menu = <Menu onItemSelected={this.onMenuItemSelected} />;
     return (
-      <View style={style.container}>
-        <Text>Demandes</Text>
-        <FloatingAction
-          position="right"
-          actions={actions}
-          color={style.color}
-          onPressItem={name => {
-            this.goToScreen(name);
-            // alert(`selected button: ${name}`);
-          }}
-        />
-      </View>
+      <SideMenu
+        menu={menu}
+        isOpen={this.state.isOpen}
+        onChange={isOpen => this.updateMenuState(isOpen)}
+      >
+        <View style={style.container}>
+          <Text>Demandes</Text>
+          <FloatingAction
+            position="right"
+            actions={actions}
+            color={style.color}
+            onPressItem={name => {
+              this.goToScreen(name);
+              // alert(`selected button: ${name}`);
+            }}
+          />
+        </View>
+      </SideMenu>
     );
   }
 }

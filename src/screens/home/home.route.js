@@ -25,10 +25,10 @@ export const HomeStack = createMaterialTopTabNavigator(
   },
   {
     initialRouteName: "Offre",
-    swipeEnabled: true,
+    swipeEnabled: false,
     tabBarOptions: {
-      showLabel: false,
-      showIcon: true,
+      showLabel: true,
+      showIcon: false,
       style: {
         backgroundColor: style.color,
         borderTopWidth: 1,
